@@ -252,12 +252,12 @@ export default {
           } else if (type === 'delete') {
             if (res.data.data.delete_app) {
               this.$Message.info('删除成功')
-              this.$router.push('/application/')
+              this.$router.push('/master/application')
             }
           } else if (type === 'post') {
             if (res.data.data.add_app) {
               this.$Message.info('添加成功')
-              this.$router.push('/application/')
+              this.$router.push('/master/application')
             }
           } else {
             if (res.data.data.update_app) {

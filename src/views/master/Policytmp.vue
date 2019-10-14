@@ -106,38 +106,7 @@ export default {
           }
         ]
       },
-      data2: [
-        // {
-        //   title: '策略分类',
-        //   expand: true,
-        //   children: [
-        //     {
-        //       title: 'sql',
-        //       expand: true,
-        //       children: [
-        //         {
-        //           title: 'leaf 1-1-1'
-        //         },
-        //         {
-        //           title: 'leaf 1-1-2'
-        //         }
-        //       ]
-        //     },
-        //     {
-        //       title: 'xss',
-        //       expand: true,
-        //       children: [
-        //         {
-        //           title: 'leaf 1-2-1'
-        //         },
-        //         {
-        //           title: 'leaf 1-2-1'
-        //         }
-        //       ]
-        //     }
-        //   ]
-        // }
-      ]
+      data2: []
     }
   },
   created () {
@@ -192,7 +161,7 @@ export default {
             this.modalShow = false
             setTimeout(() => {
               this.$Message.success('删除成功')
-            }, 2000)
+            }, 1500)
             this.init()
           }
         }
@@ -262,11 +231,19 @@ export default {
       }
     },
     remove (row) {
-      this.request(
-        'delete',
-        '/template_manage/?template_type=groupTemplate',
-        Qs.stringify({ template_id: row.template_id })
-      )
+      this.$Modal.confirm({
+        title: '确认框',
+        content: '<p>确认要删除吗？</p>',
+        okText: '确认',
+        onOk: () => {
+          this.request(
+            'delete',
+            '/template_manage/?template_type=groupTemplate',
+            Qs.stringify({ template_id: row.template_id })
+          )
+        },
+        cancelText: '取消'
+      })
     },
     handleReset (name) {
       this.$refs[name].resetFields()

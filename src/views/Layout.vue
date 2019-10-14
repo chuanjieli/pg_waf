@@ -2,8 +2,8 @@
   <div class="layout">
     <Layout>
       <Header :style="{width: '100%'}">
-        <div style="display: flex;align-items:center; justify-content:space-between;margin:0 20px">
-          <div>
+        <div style="margin:0 20px">
+          <div style="display: inline-block">
             <span class="layout-logo"></span>
             <Icon
               @click.native="hideSider"
@@ -13,7 +13,7 @@
               size="30"
             ></Icon>
           </div>
-          <div>
+          <div style="float: right">
             <Dropdown @on-click="userConfig">
               <a href="javascript:void(0)" style="font-size:18px">
                 <Icon type="md-person" size="22"></Icon>
@@ -27,7 +27,7 @@
           </div>
         </div>
       </Header>
-      <Layout :style="{height:'calc(100vh - 66px)'}">
+      <Layout :style="{height:'calc(100vh - 64px)'}">
         <Sider
           ref="side1"
           hide-trigger
@@ -70,18 +70,10 @@
               <Icon type="ios-planet-outline" />
               <span>访问日志</span>
             </MenuItem>
-            <!-- <MenuItem name="nodes" to="/nodes">
-              <Icon type="md-git-network" />
-              <span>节点管理</span>
-            </MenuItem>-->
             <MenuItem name="application" to="/master/application" v-if="role == '1'">
               <Icon type="ios-keypad"></Icon>
               <span>应用管理</span>
             </MenuItem>
-            <!-- <MenuItem name="certificate" to="/certificate" v-if="role == '1'">
-              <Icon type="ios-paper-outline" />
-              <span>证书管理</span>
-            </MenuItem>-->
             <MenuItem name="waf" to="/master/waf" v-if="role == '1'">
               <Icon type="ios-browsers-outline" />
               <span>WAF策略</span>

@@ -165,7 +165,7 @@
           :label-width="100"
         >
           <FormItem label="策略模式" prop="re2">
-            <Input type="text" v-model="form1.re2" placeholder="(Google RE2正则表达式)"></Input>
+            <Input type="text" v-model="form1.re2" placeholder="正则表达式"></Input>
           </FormItem>
           <FormItem label="Payload值" prop="payload">
             <Input type="text" v-model="form1.payload" placeholder="需要测试的Payload值"></Input>
@@ -260,12 +260,12 @@ export default {
           } else if (type === 'delete') {
             if (res.data.data.delete_policy) {
               this.$Message.info('删除成功')
-              this.$router.push('/waf/')
+              this.$router.push('/master/waf')
             }
           } else if (type === 'post') {
             if (res.data.data.add_policy) {
               this.$Message.info('添加成功')
-              this.$router.push('/waf/')
+              this.$router.push('/master/waf')
             }
           } else {
             if (res.data.data.update_policy) {

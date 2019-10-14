@@ -26,27 +26,29 @@ const cdn = {
   // css: ['./publicjs/iview.css'],
   // css: ['https://cdn.bootcss.com/iview/3.4.2/styles/iview.css'],
   // cdn的js链接
-  // js: [
-  //   '/publicjs/vue.min.js',
-  //   '/publicjs/vuex.min.js',
-  //   '/publicjs/vue-router.min.js',
-  //   '/publicjs/axios.min.js',
-  //   // '/publicjs/iview.min.js',
-  //   '/publicjs/echarts.min.js'
-  // ]
   js: [
-    'https://cdn.staticfile.org/vue/2.6.10/vue.min.js',
-    'https://cdn.staticfile.org/vuex/3.0.1/vuex.min.js',
-    'https://cdn.staticfile.org/vue-router/3.0.3/vue-router.min.js',
-    'https://cdn.bootcss.com/axios/0.18.0/axios.min.js',
-    // 'https://cdn.bootcss.com/iview/3.4.2/iview.min.js',
-    'https://cdn.bootcss.com/echarts/4.2.1/echarts.min.js'
+    '/publicjs/vue.min.js',
+    '/publicjs/vuex.min.js',
+    '/publicjs/vue-router.min.js',
+    '/publicjs/axios.min.js',
+    // '/publicjs/iview.min.js',
+    '/publicjs/echarts.min.js'
   ]
+  // js: [
+  //   'https://cdn.staticfile.org/vue/2.6.10/vue.min.js',
+  //   'https://cdn.staticfile.org/vuex/3.0.1/vuex.min.js',
+  //   'https://cdn.staticfile.org/vue-router/3.0.3/vue-router.min.js',
+  //   'https://cdn.bootcss.com/axios/0.18.0/axios.min.js',
+  //   // 'https://cdn.bootcss.com/iview/3.4.2/iview.min.js',
+  //   'https://cdn.bootcss.com/echarts/4.2.1/echarts.min.js'
+  // ]
 }
 
 module.exports = {
   // 基本路径
-  publicPath: '/',
+  publicPath: process.env.NODE_ENV === 'production'
+    ? '/heyun/'
+    : '/',
   // 输出文件目录
   outputDir: 'dist',
   // eslint-loader 是否在保存的时候检查

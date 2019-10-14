@@ -25,6 +25,13 @@
                 <Icon :size="14" type="md-cube"></Icon>
               </span>
             </Input>
+            <!-- <img
+              ref="img"
+              src="http://117.136.182.230/hedunwaf/get_valid_img.png/?1234"
+              title="点击刷新"
+              style="width: 109px;height: 32px;position: absolute;top: 0;right: 0;cursor:pointer"
+              @click="refresh()"
+            /> -->
             <img
               ref="img"
               src="http://106.13.41.122:8000/hedunwaf/get_valid_img.png/?1234"

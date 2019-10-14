@@ -3,21 +3,37 @@
     <Card title="CC日志" :padding="0" shadow>
       <Form ref="form" :model="form" inline label-position="right" style="margin-top:20px">
         <FormItem label="应用" :label-width="50">
-          <Select v-model="select" style="width:120px">
+          <Select v-model="select" style="max-width:300px;min-width:120px">
             <Option v-for="item in form.list" :value="item" :key="item">{{item}}</Option>
           </Select>
         </FormItem>
-        <FormItem label="开始时间(00:00:00)" :label-width="120">
-          <Date-picker
-            type="date"
+        <FormItem label="查询时间范围" :label-width="110">
+          <Poptip
+            style="margin-right:5px;"
+            placement="bottom"
+            word-wrap
+            width="250"
+            trigger="hover"
+            content="
+            开始时间从当天00:00:00,
+            结束时间到当天23:59:59,
+            选择一天的请点击日期2次,
+            不选择日期默认是查询当天数据"
+          >
+            <Icon type="ios-help-circle-outline" size="16" />
+          </Poptip>
+          <DatePicker
+            type="daterange"
             format="yyyy-MM-dd"
-            :value="st_time||new Date()"
             :options="options"
             :editable="false"
+            placement="bottom-end"
+            placeholder="Select date"
+            style="width: 200px"
             @on-change="handleChange"
-          ></Date-picker>
+          ></DatePicker>
         </FormItem>
-        <FormItem label="结束时间(23:59:59)" :label-width="120">
+        <!-- <FormItem label="结束时间(23:59:59)" :label-width="120">
           <Date-picker
             type="date"
             format="yyyy-MM-dd"
@@ -26,7 +42,7 @@
             :editable="false"
             @on-change="handleChange1"
           ></Date-picker>
-        </FormItem>
+        </FormItem>-->
         <FormItem :label-width="10">
           <Button type="primary" @click="queryLogs">查询CC日志</Button>
         </FormItem>
@@ -172,11 +188,9 @@ export default {
   },
   methods: {
     handleChange (date) {
-      if (date < this.ed_time || this.ed_time === '') {
-        this.st_time = date
-      } else {
-        this.$Message.info('日期选择不对')
-      }
+      console.log(date)
+      this.st_time = date[0]
+      this.ed_time = date[1]
     },
     handleChange1 (date) {
       if (date >= this.st_time && this.st_time) {

@@ -9,7 +9,7 @@ import { Message } from 'iview'
 // Full config:  https://github.com/axios/axios#request-config
 // axios.defaults.baseURL = process.env.baseURL || process.env.apiUrl || '';
 // axios.defaults.headers.common['Authorization'] = AUTH_TOKEN;
-// axios.defaults.headers.post['Content-Type'] = 'application/x-www-form-urlencoded';
+axios.defaults.headers['Content-Type'] = 'application/x-www-form-urlencoded'
 
 let config = {
   // baseURL: 'http://117.136.182.230/hedunwaf/',
@@ -59,6 +59,9 @@ _axios.interceptors.response.use(
     return response
   },
   function (error) {
+    console.log(error)
+    console.log(error.response)
+
     if (error.response.status >= 500) {
       Message.error({
         content: '服务器忙，请稍后重试',

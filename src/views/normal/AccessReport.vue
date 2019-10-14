@@ -735,15 +735,12 @@ export default {
               barWidth: 14,
               barMinHeight: 20,
               itemStyle: {
-                normal: {
-                  label: {
-                    show: true,
-                    position: 'top',
-                    formatter: '正常'
-                  }
-                },
                 emphasis: {
                   barBorderRadius: 7
+                },
+                normal: {
+                  barBorderRadius: 7,
+                  color: '#4C9AFB'
                 }
               }
             }

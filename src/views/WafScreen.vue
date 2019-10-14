@@ -4,9 +4,9 @@
       <i class="logo"></i>
       <i class="logo1" title="切换地图" @click="cutMap" ref="logo"></i>
       <span>今日阻断</span>
-      <span class="font num">{{attack_num.day_attack_num}}</span>
+      <span class="font num">{{attack_num.day_attack_num || '0'}}</span>
       <span>次，累计阻断</span>
-      <span class="font addNum">{{attack_num.all_attack_num}}</span>
+      <span class="font addNum">{{attack_num.all_attack_num || '0'}}</span>
       <span>次</span>
       <div id="userName">
         <span class="userName">{{user}}</span>
@@ -127,7 +127,7 @@
         </div>
       </div>
     </div>
-    <!-- <Spin style="z-index:9999999" size="large" fix v-if="spinShow"></Spin> -->
+    <Spin style="z-index:9999" size="large" fix v-if="spinShow"></Spin>
   </div>
 </template>
 <script>
@@ -848,7 +848,7 @@ li {
   cursor: pointer;
   line-height: 35px;
   height: 36px;
-  z-index: 100000;
+  z-index: 1000;
 }
 
 .userName {
@@ -1115,7 +1115,7 @@ li {
   position: relative;
   margin-top: 3.125rem /* 50px */;
   width: 15%;
-  z-index: 10000;
+  z-index: 1000;
 }
 
 .centerCont {
@@ -1131,7 +1131,7 @@ li {
   position: relative;
   margin-top: 3.125rem /* 50px */;
   width: 20%;
-  z-index: 10000;
+  z-index: 100;
 }
 
 #map {
@@ -1153,7 +1153,7 @@ li {
   border: 1px solid #10cfd6;
   -ms-transform: translate(-50%, 0%);
   transform: translate(-50%, 0%);
-  z-index: 10000;
+  z-index: 100;
 }
 
 .leftMiddle,

@@ -175,7 +175,6 @@
     </div>
 
     <Spin size="large" fix v-if="spinShow"></Spin>
-    <BackTop></BackTop>
   </div>
 </template>
 <script>
